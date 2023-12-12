@@ -7,15 +7,19 @@ const connect = function () {
     port : 50541 // PORT number here,
   });
 
-  // interpret incoming data as text
-  conn.setEncoding("utf8");
+ 
+conn.setEncoding("utf8");// interpret incoming data as text
 
-  return conn;
-};
+conn.on("connect",() => {
+  console.log("Succesfully connected to game server!");
+  console.log("Eat as many apples without crashing into walls, or yourself. Goodluck !");
 
-console.log("Connecting ...");
-const conn = connect();
-conn.on("connect", () => {
-  console.log("Eat as many apples without crashing into walls, or yourself. Goodluck !")// code that does something when the connection is first established
+  conn.write("Name:LJG");
 });
-module.exports = {connect};
+
+return conn;
+
+};
+console.log("Connecting ...");
+
+module.exports = connect;
