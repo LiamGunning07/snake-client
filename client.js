@@ -1,12 +1,12 @@
 const net = require("net");
 const { setupInput, move } = require("./input");
-
+const { IP, PORT } = require("./constants");
 
 // establishes a connection with the game server
 const connect = function () {
   const conn = net.createConnection({
-    host: "localhost",
-    port : 50541 // PORT number here,
+    host: IP,
+    port: PORT
   });
 
  
@@ -36,18 +36,24 @@ const handleUserInput = (key) => {
     d: 'right'
   };
 
+  const quickChat = {
+    1: "Say: Hello World!",
+    2: "Say: You Stole my Apple!!",
+    3: "Say: I'm getting Big!",
+    4: "Say: Watch Out!",
+    5: "Say: $#!%*"
+  };
+
   if (key in keyMap) {
     move(conn, keyMap[key]);
+  } else if (key in quickChat) {
+    conn.write(quickChat[key]);
   }
 };
 
 stdin.on("data", (key) => {
   handleUserInput(key);
 });
-
-const messages = {
-  1: ""
-}
 
 
 module.exports = { connect, move };
