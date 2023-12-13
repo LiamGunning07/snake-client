@@ -45,5 +45,9 @@ stdin.on("data", (key) => {
   handleUserInput(key);
 });
 
+const messages = {
+  1: ""
+}
+
 
 module.exports = { connect, move };
