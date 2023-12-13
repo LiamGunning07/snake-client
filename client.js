@@ -1,4 +1,5 @@
 const net = require("net");
+const { setupInput } = require("./input");
 
 const move = (conn, direction) => {
   const command = `Move: ${direction}`;
@@ -27,24 +28,9 @@ conn.on("connect",() => {
 return conn;
 
 };
-console.log("Connecting ...");
-
-const setupInput = function () {
-  const stdin = process.stdin;
-  stdin.setRawMode(true);
-  stdin.setEncoding("utf8");
-  stdin.resume();
-  return stdin;
-};
 
 const conn = connect()
 const stdin = setupInput();
-
-
-stdin.on("data", (key) => {
-  handleUserInput(key);
-});
-
 const handleUserInput = (key) => {
   // Exit the game if the user presses Ctrl + C
   if (key === '\u0003') {
@@ -61,6 +47,10 @@ const handleUserInput = (key) => {
     move(conn, keyMap[key]);
   }
 };
+
+stdin.on("data", (key) => {
+  handleUserInput(key);
+});
 
 
 module.exports = { connect, move };
