@@ -18,11 +18,7 @@ conn.setEncoding("utf8");// interpret incoming data as text
 conn.on("connect",() => {
   console.log("Succesfully connected to game server!");
   console.log("Eat as many apples without crashing into walls, or yourself. Goodluck !");
-
   conn.write("Name:LJG");
-//  setTimeout(() => move(conn, 'up'), 100); // First move up
-//  setTimeout(() => move(conn, 'up'), 200); // Second move up
- // setTimeout(() => move(conn, 'up'), 300); // Third move up
 });
 
 return conn;
