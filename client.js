@@ -1,10 +1,7 @@
 const net = require("net");
-const { setupInput } = require("./input");
+const { setupInput, move } = require("./input");
 
-const move = (conn, direction) => {
-  const command = `Move: ${direction}`;
-  conn.write(command);
-};
+
 // establishes a connection with the game server
 const connect = function () {
   const conn = net.createConnection({

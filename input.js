@@ -1,5 +1,10 @@
-const { connect , move} =  require("./client");
+const { connect } =  require("./client");
 let connection;
+
+const move = (conn, direction) => {
+  const command = `Move: ${direction}`;
+  conn.write(command);
+};
 
 const setupInput = function (conn) {
   connection = conn;
@@ -15,6 +20,7 @@ const handleUserInput = (key) => {
   if (key === '\u0003') {
     process.exit();
   }
+
   const keyMap = {
     w: 'up',
     a: 'left',
@@ -23,11 +29,12 @@ const handleUserInput = (key) => {
   };
 
   if (key in keyMap) {
-    move(conn, keyMap[key]);
+    connection.write(`Move: ${keyMap[key]}`);
+    //move(conn, keyMap[key]);
   }
 };
 
-module.exports = { setupInput };
+module.exports = { setupInput, move };
 
 
 
