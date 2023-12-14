@@ -18,13 +18,13 @@ Before you can run this client, you will need to be running the server side whic
 - Run the development snake client using the `node play.js` command.
 
 ## Key Map
-(W) : UP
-(A) : LEFT
-(S) : DOWN
-(D) : RIGHT
+(W) : UP  
+(A) : LEFT  
+(S) : DOWN  
+(D) : RIGHT  
 ### Quick Chat
-(1) : "Hello World!",
-(2) : "You Stole my Apple!!",
-(3) : "I'm getting Big!",
-(4) : "Watch Out!",
-(5) : "$#!%*"
+(1) :  "Hello World!"  
+(2) :  "You Stole my Apple!!"  
+(3) :  "I'm getting Big!"  
+(4) :  "Watch Out!"  
+(5) :  "$#!%*" 
