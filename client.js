@@ -12,7 +12,7 @@ const connect = function() {
   conn.on("connect",() => {
     console.log("Succesfully connected to game server!");
     console.log("Eat as many apples without crashing into walls, or yourself. Goodluck !");
-    conn.write("Name:LJG");
+    conn.write("Name: LJG");
   });
 
   return conn;
